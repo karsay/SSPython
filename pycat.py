@@ -242,7 +242,7 @@ def client_hander(client_socket):
     if command:
         # プロンプトの表示
         prompt = "<pycat:#> "
-        client_socket.send()
+        client_socket.send(prompt)
 
         while True:
             # 改行(エンタ〜キー)を受け取るまでデータを受信
