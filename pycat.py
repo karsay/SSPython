@@ -206,7 +206,7 @@ def client_hander(client_socket):
     # ファイルアップロードされているかどうかの確認
     if len(upload_destination):
         # 全てのデータを読みとり、指定されたファイルにデータ書き込み
-        filebuffer = ""
+        file_buffer = ""
         # 受信データがなくなるまでデータ受信を継続
         while True:
             data = client_socket.recv(1096)
@@ -214,7 +214,7 @@ def client_hander(client_socket):
             if len(data) == 0:
                 break
             else:
-                filebuffer += data
+                file_buffer += data
 
         # 受信したデータをファイルに書き込み
         try:
@@ -241,7 +241,7 @@ def client_hander(client_socket):
     # コマンドシェルの実行を指定されている場合の処理
     if command:
         # プロンプトの表示
-        prompt = "<pycat:#> "
+        prompt = "<BHP:#>  "
         client_socket.send(prompt)
 
         while True:
